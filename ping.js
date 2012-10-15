@@ -4,6 +4,7 @@ var cronJob = require('cron').CronJob,
     config = {}
     queue = [];
     
+// TODO: add NODE_ENV=production to Heroku config
 switch(environment){
     case 'development':
         // Runs every 2 seconds, everyday
@@ -30,11 +31,11 @@ switch(environment){
 }
 
 function handler(error, response, body){
-    if (!error && response.statusCode == 200){
-        console.log(response.statusCode, error)
+    if (!error && response && response.statusCode == 200){
+        console.log("ping", body)
     }
     else{
-        console.log(response.statusCode, "ping", body)
+        console.log("error", error)
     }
 }
 
