@@ -4,7 +4,6 @@ var cronJob = require('cron').CronJob,
     config = {}
     queue = [];
     
-// TODO: add NODE_ENV=production to Heroku config
 switch(environment){
     case 'development':
         // Runs every 2 seconds, everyday
